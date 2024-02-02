@@ -1,28 +1,41 @@
+"use client";
+
 /* Components */
 import { Providers } from "@/lib/providers";
 import { Nav } from "./components/Nav";
 import Header from "./components/Header";
+import { ThemeProvider, createTheme, CssBaseline } from "@mui/material";
+
+// Theme
+import theme from "./components/utils/theme";
 
 /* Instruments */
 import styles from "./styles/layout.module.css";
 import "./styles/globals.css";
 
+import { Montserrat } from "next/font/google";
+
+const mont_serrat = Montserrat({ subsets: ["latin"] });
+
 export default function RootLayout(props: React.PropsWithChildren) {
+  const THEME = createTheme(theme());
   return (
     <Providers>
-      <html lang="en">
-        <body>
-          <section className={styles.container}>
-            <Nav />
+      <ThemeProvider theme={THEME}>
+        {/* <CssBaseline /> */}
+        <html lang="en">
+          <body>
+            <section className={styles.container}>
+              <Nav />
 
-            <header className={styles.header}>
-              {/* <img src="/logo.svg" className={styles.logo} alt="logo" /> */}
-              <Header />
-            </header>
+              <header className={styles.header}>
+                {/* <img src="/logo.svg" className={styles.logo} alt="logo" /> */}
+                <Header />
+              </header>
 
-            <main className={styles.main}>{props.children}</main>
+              <main className={styles.main}>{props.children}</main>
 
-            <footer className={styles.footer}>
+              {/* <footer className={styles.footer}>
               <span>Learn </span>
               <a
                 className={styles.link}
@@ -59,10 +72,11 @@ export default function RootLayout(props: React.PropsWithChildren) {
               >
                 React Redux
               </a>
-            </footer>
-          </section>
-        </body>
-      </html>
+            </footer> */}
+            </section>
+          </body>
+        </html>
+      </ThemeProvider>
     </Providers>
   );
 }
