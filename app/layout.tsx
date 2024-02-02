@@ -14,6 +14,7 @@ import styles from "./styles/layout.module.css";
 import "./styles/globals.css";
 
 import { Montserrat } from "next/font/google";
+import Footer from "./components/Footer";
 
 const mont_serrat = Montserrat({ subsets: ["latin"] });
 
@@ -73,6 +74,10 @@ export default function RootLayout(props: React.PropsWithChildren) {
                 React Redux
               </a>
             </footer> */}
+
+              <footer className={styles.footer}>
+                <Footer />
+              </footer>
             </section>
           </body>
         </html>

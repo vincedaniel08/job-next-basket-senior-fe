@@ -25,8 +25,8 @@
 
 .header,
 .main {
-  padding-left: 6rem;
-  padding-right: 6rem;
+  /* padding-left: 6rem;
+  padding-right: 6rem; */
   /*
   display: flex;  
   flex-direction: column;
@@ -35,8 +35,8 @@
 }
 
 .footer {
-  grid-area: footer;
-  justify-self: center;
+  /* grid-area: footer; */
+  /* justify-self: center; */
 }
 
 .nav {
