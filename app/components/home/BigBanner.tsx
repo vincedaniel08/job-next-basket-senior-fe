@@ -8,7 +8,7 @@ export default function BigBanner() {
     <Box py={10} textAlign={"center"}>
       <Box style={{ position: "relative" }}>
         <img
-          src={banner_1.src}
+          src={"https://source.unsplash.com/random/900x500?sig=12"}
           alt="banner"
           objectFit="cover"
           width="100%"
@@ -36,7 +36,7 @@ export default function BigBanner() {
           </Typography>
           <Typography
             variant="h2"
-            sx={{ fontWeight: "bold", color: "black" }}
+            sx={{ fontWeight: "bold", color: "white" }}
             py={2}
           >
             Problems trying to resolve the conflict between
@@ -44,7 +44,7 @@ export default function BigBanner() {
           <Typography
             variant="body1"
             py={2}
-            sx={{ fontWeight: "bold", color: "black" }}
+            sx={{ fontWeight: "bold", color: "white" }}
           >
             Problems trying to resolve the conflict between the two major realms
             of Classical physics:

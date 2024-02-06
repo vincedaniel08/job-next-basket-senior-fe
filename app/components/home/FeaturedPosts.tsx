@@ -25,6 +25,7 @@ export default function FeaturedPosts() {
         "We focus on ergonomics and meeting you where you work. It's only a keystroke away.",
       date: "2 April 2021",
       comment: "10 comments",
+      image: "https://source.unsplash.com/random/338x300?sig=15",
     },
     {
       icon: "ic:outline-email",
@@ -33,6 +34,7 @@ export default function FeaturedPosts() {
         "We focus on ergonomics and meeting you where you work. It's only a keystroke away.",
       date: "2 April 2021",
       comment: "10 comments",
+      image: "https://source.unsplash.com/random/338x300?sig=16",
     },
     {
       icon: "ic:outline-email",
@@ -41,6 +43,7 @@ export default function FeaturedPosts() {
         "We focus on ergonomics and meeting you where you work. It's only a keystroke away.",
       date: "2 April 2021",
       comment: "10 comments",
+      image: "https://source.unsplash.com/random/338x300?sig=20",
     },
   ];
   return (
@@ -60,11 +63,19 @@ export default function FeaturedPosts() {
         <Grid item xs={12}>
           <Grid container spacing={2}>
             {posts.map((post, index) => (
-              <Grid item xs={4}>
-                <Box width={348} sx={{ textAlign: "left" }}>
+              <Grid item xs={12} md={4}>
+                <Box
+                  width={348}
+                  sx={{
+                    textAlign: {
+                      xs: "center",
+                      md: "left",
+                    },
+                  }}
+                >
                   <div style={{ position: "relative" }}>
                     <img
-                      src={banner_1.src}
+                      src={post.image}
                       alt="banner"
                       objectFit="cover"
                       width="338"

@@ -2,13 +2,21 @@ const style = {
   footerParentBox: {
     // backgroundColor: "#1a1a1a",
     display: "flex",
-    justifyContent: "center",
+    justifyContent: {
+      xs: "left",
+      md: "center",
+    },
+    textAlign: "left",
     padding: "80px 0px 90px 0px",
   },
 
   footerMainContainer: {
-    justifyContent: "center",
+    justifyContent: {
+      xs: "left",
+      md: "center",
+    },
     width: "95%",
+    textAlign: "left",
   },
 
   footerColumnLogo: {
@@ -115,7 +123,11 @@ const style = {
     backgroundColor: "#f2f2f2",
     padding: "10px 0px 10px 0px",
     justifyContent: "center",
-    pl: 20,
+    pl: {
+      xs: 0,
+
+      md: 20,
+    },
     p: 3,
   },
 
@@ -149,6 +161,12 @@ const style = {
   imageBox: {
     display: "flex",
     alignItems: "center",
+  },
+  footerData: {
+    fontSize: {
+      xs: 12,
+      md: 15,
+    },
   },
 };
 export default style;

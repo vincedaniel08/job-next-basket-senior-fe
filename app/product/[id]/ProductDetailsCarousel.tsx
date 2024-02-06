@@ -1,14 +1,17 @@
+// "use client";
+// import dynamic from "next/dynamic";
 import PropTypes from "prop-types";
-import Slider from "react-slick";
+
 import { useState, useRef, useEffect } from "react";
 // @mui
 import { alpha, styled } from "@mui/material/styles";
-import { Box } from "@mui/material";
+import { Box, Grid, Card } from "@mui/material";
 //
 import Image from "../../components/Image";
 import LightboxModal from "../../components/LightboxModal";
-import { CarouselArrowIndex } from "../../../../components/carousel";
+import { CarouselArrowIndex } from "../../components/carousel";
 
+import Slider from "react-slick";
 // ----------------------------------------------------------------------
 
 const THUMB_SIZE = 64;
@@ -22,13 +25,13 @@ const RootStyle = styled("div")(({ theme }) => ({
 
 // ----------------------------------------------------------------------
 
-ProductDetailsCarousel.propTypes = {
-  product: PropTypes.shape({
-    images: PropTypes.arrayOf(PropTypes.string),
-  }),
-};
+// ProductDetailsCarousel.propTypes = {
+//   product: PropTypes.shape({
+//     images: PropTypes.arrayOf(PropTypes.string),
+//   }),
+// };
 
-export default function ProductDetailsCarousel({ product }) {
+export default function ProductDetailsCarousel({ product }: { product: any }) {
   const [openLightbox, setOpenLightbox] = useState(false);
 
   const [selectedImage, setSelectedImage] = useState(0);
@@ -43,25 +46,30 @@ export default function ProductDetailsCarousel({ product }) {
 
   const slider2 = useRef(null);
 
-  const imagesLightbox = product.images.map((_image) => _image);
+  const imagesLightbox = product.images?.map((_image: string) => _image) || [];
 
-  const handleOpenLightbox = (url) => {
-    const selectedImage = imagesLightbox.findIndex((index) => index === url);
+  const handleOpenLightbox = (url: string) => {
+    const selectedImage = imagesLightbox.findIndex(
+      (index: string) => index === url
+    );
     setOpenLightbox(true);
     setSelectedImage(selectedImage);
+    console.log("selectedImage", selectedImage);
   };
 
   const settings1 = {
+    speed: 320,
     dots: false,
     arrows: false,
     slidesToShow: 1,
     draggable: false,
     slidesToScroll: 1,
     adaptiveHeight: true,
-    beforeChange: (current, next) => setCurrentIndex(next),
+    beforeChange: (current: number, next: number) => setCurrentIndex(next),
   };
 
   const settings2 = {
+    speed: 320,
     dots: false,
     arrows: false,
     centerMode: true,
@@ -69,7 +77,7 @@ export default function ProductDetailsCarousel({ product }) {
     focusOnSelect: true,
     variableWidth: true,
     centerPadding: "0px",
-    slidesToShow: product.images.length > 3 ? 3 : product.images.length,
+    slidesToShow: product?.images?.length > 3 ? 3 : product?.images?.length,
   };
 
   useEffect(() => {
@@ -101,23 +109,23 @@ export default function ProductDetailsCarousel({ product }) {
           }}
         >
           <Slider {...settings1} asNavFor={nav2} ref={slider1}>
-            {product.images.map((img) => (
+            {product?.images?.map((img) => (
               <Image
                 key={img}
                 alt="large image"
                 src={img}
-                ratio="1/1"
                 onClick={() => handleOpenLightbox(img)}
                 sx={{ cursor: "zoom-in" }}
               />
             ))}
           </Slider>
-          {/* <CarouselArrowIndex
+          <CarouselArrowIndex
             index={currentIndex}
-            total={product.images.length}
+            total={product.images?.length}
             onNext={handleNext}
             onPrevious={handlePrevious}
-          /> */}
+            customIcon={null} // Add the missing customIcon property
+          />
         </Box>
       </Box>
 
@@ -126,12 +134,20 @@ export default function ProductDetailsCarousel({ product }) {
           my: 3,
           mx: "auto",
           "& .slick-current .isActive": { opacity: 1 },
-          ...(product.images.length === 1 && { maxWidth: THUMB_SIZE * 1 + 16 }),
-          ...(product.images.length === 2 && { maxWidth: THUMB_SIZE * 2 + 32 }),
-          ...(product.images.length === 3 && { maxWidth: THUMB_SIZE * 3 + 48 }),
-          ...(product.images.length === 4 && { maxWidth: THUMB_SIZE * 3 + 48 }),
-          ...(product.images.length >= 5 && { maxWidth: THUMB_SIZE * 6 }),
-          ...(product.images.length > 2 && {
+          ...(product?.images?.length === 1 && {
+            maxWidth: THUMB_SIZE * 1 + 16,
+          }),
+          ...(product?.images?.length === 2 && {
+            maxWidth: THUMB_SIZE * 2 + 32,
+          }),
+          ...(product?.images?.length === 3 && {
+            maxWidth: THUMB_SIZE * 3 + 48,
+          }),
+          ...(product?.images?.length === 4 && {
+            maxWidth: THUMB_SIZE * 3 + 48,
+          }),
+          ...(product?.images?.length >= 5 && { maxWidth: THUMB_SIZE * 6 }),
+          ...(product?.images?.length > 2 && {
             position: "relative",
             "&:before, &:after": {
               top: 0,
@@ -151,7 +167,7 @@ export default function ProductDetailsCarousel({ product }) {
         }}
       >
         <Slider {...settings2} asNavFor={nav1} ref={slider2}>
-          {product.images.map((img, index) => (
+          {product?.images?.map((img, index) => (
             <Box key={img} sx={{ px: 0.75 }}>
               <Image
                 disabledEffect
@@ -174,13 +190,29 @@ export default function ProductDetailsCarousel({ product }) {
       </Box>
 
       <LightboxModal
+        animationDuration={320}
         images={imagesLightbox}
         mainSrc={imagesLightbox[selectedImage]}
         photoIndex={selectedImage}
         setPhotoIndex={setSelectedImage}
         isOpen={openLightbox}
         onCloseRequest={() => setOpenLightbox(false)}
+        onMovePrevRequest={() => {
+          handlePrevious();
+          setSelectedImage(
+            (selectedImage + imagesLightbox?.length - 1) %
+              imagesLightbox?.length
+          );
+        }}
+        onMoveNextRequest={() => {
+          handleNext();
+          setSelectedImage((selectedImage + 1) % imagesLightbox?.length);
+        }}
       />
     </RootStyle>
   );
 }
+
+// export default dynamic(() => Promise.resolve(ProductDetailsCarousel), {
+//   ssr: false,
+// });

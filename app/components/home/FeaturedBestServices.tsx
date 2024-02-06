@@ -39,31 +39,29 @@ export default function FeaturedBestServices() {
     <Box sx={{ flexGrow: 1, mt: 10, mx: 15 }}>
       <Grid container spacing={2}>
         <Grid item xs={12}>
-          <Item>
-            <Typography variant="body1" color="primary">
-              Featured Products
-            </Typography>
-            <Typography variant="h5" color="text.primary">
-              THE BEST SERVICES
-            </Typography>
-            <Typography variant="body2" color="text.primary">
-              Problems trying to resolve the conflict between
-            </Typography>
-          </Item>
+          <Typography variant="h5" color="gray">
+            Featured Products
+          </Typography>
+          <Typography variant="h3" padding={2}>
+            THE BEST SERVICES
+          </Typography>
+          <Typography variant="body2" color="text.primary">
+            Problems trying to resolve the conflict between
+          </Typography>
         </Grid>
 
-        <Grid item xs={12}>
+        <Grid item xs={12} my={10}>
           <Grid container spacing={2}>
             {services.map((service, index) => (
-              <Grid item xs={4}>
+              <Grid item xs={12} md={4}>
                 <Box sx={{ textAlign: "center" }}>
                   <Iconify
                     sx={{ color: "primary.main" }}
                     icon={"ic:outline-email"}
-                    width={50}
-                    height={50}
+                    width={60}
+                    height={60}
                   />
-                  <Typography variant="h5" color="text.primary">
+                  <Typography variant="h5" color="text.primary" padding={2}>
                     {service.title}
                   </Typography>
 

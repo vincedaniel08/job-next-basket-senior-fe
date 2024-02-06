@@ -23,7 +23,7 @@ import Iconify from "./Iconify";
 const pages = ["Home", "Shop", "About", "Blog", "Contact", "Pages"];
 const settings = ["Profile", "Account", "Dashboard", "Logout"];
 
-function ResponsiveAppBar() {
+function ResponsiveAppBar({ toggleCartOpen, toggleWishOpen }) {
   const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(
     null
   );
@@ -58,7 +58,7 @@ function ResponsiveAppBar() {
             href="#app-bar-with-responsive-menu"
             sx={{
               mr: 2,
-              display: { xs: "none", md: "flex" },
+
               fontFamily: "monospace",
               fontWeight: 700,
               letterSpacing: ".3rem",
@@ -68,7 +68,7 @@ function ResponsiveAppBar() {
           >
             Bandage
           </Typography>
-
+          <Box sx={{ flexGrow: 1 }} />
           <Box
             sx={{ flexGrow: 1, display: { xs: "none", md: "flex" }, ml: 10 }}
           >
@@ -83,7 +83,14 @@ function ResponsiveAppBar() {
             ))}
           </Box>
 
-          <Box sx={{ display: "flex" }}>
+          <Box
+            sx={{
+              display: {
+                xs: "none",
+                md: "flex",
+              },
+            }}
+          >
             <Iconify
               sx={{ mx: 1 }}
               // sx={styles.icon}
@@ -103,7 +110,10 @@ function ResponsiveAppBar() {
             />
           </Box>
 
-          <Box sx={{ display: "flex", mx: 2 }}>
+          <Box
+            sx={{ display: "flex", mx: 2, cursor: "pointer" }}
+            onClick={() => toggleCartOpen(true)}
+          >
             <Iconify
               // sx={styles.icon}
               icon={"mdi:cart-outline"}
@@ -112,7 +122,10 @@ function ResponsiveAppBar() {
             />
           </Box>
 
-          <Box sx={{ display: "flex", mx: 2 }}>
+          <Box
+            sx={{ display: "flex", mx: 2, cursor: "pointer" }}
+            onClick={() => toggleWishOpen(true)}
+          >
             <Iconify
               // sx={styles.icon}
               icon={"mdi:heart-outline"}
@@ -121,6 +134,26 @@ function ResponsiveAppBar() {
             />
           </Box>
         </Toolbar>
+        <Box
+          sx={{
+            display: { xs: "flex", md: "none" },
+            textAlign: "center",
+            justifyContent: "center",
+            alignItems: "center",
+            alignContent: "center",
+            flexDirection: "column",
+          }}
+        >
+          {pages.map((page) => (
+            <Button
+              key={page}
+              onClick={handleCloseNavMenu}
+              sx={{ my: 2, color: "black", display: "block", fontSize: 20 }}
+            >
+              {page}
+            </Button>
+          ))}
+        </Box>
       </Container>
     </AppBar>
   );

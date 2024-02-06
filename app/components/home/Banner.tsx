@@ -5,8 +5,6 @@ import { styled } from "@mui/material/styles";
 import Box from "@mui/material/Box";
 import Paper from "@mui/material/Paper";
 import Grid from "@mui/material/Grid";
-// import Image from "../Image";
-import Image from "next/image";
 
 // Image
 import banner_1 from "../../../public/images/banner/banner_1.jpg";
@@ -27,7 +25,7 @@ export default function Banner() {
   return (
     <Box sx={{ flexGrow: 1, mx: 20, mt: 8 }}>
       <Grid container spacing={2}>
-        <Grid item xs={5}>
+        <Grid item xs={12} md={5}>
           {/* Image with text inside */}
           <div style={{ position: "relative" }}>
             <img
@@ -136,14 +134,8 @@ export default function Banner() {
                   </Button>
                 </div>
               </div>
-              {/* <Image
-                src={banner_1.src}
-                // ratio="16/9"
-                disabledEffect
-                sx={{ borderRadius: 1, mb: 1 }}
-              /> */}
             </Grid>
-            <Grid item xs={6}>
+            <Grid item xs={12} md={6}>
               <div style={{ position: "relative" }}>
                 <img
                   src={banner_3.src}
@@ -191,14 +183,8 @@ export default function Banner() {
                   </Button>
                 </div>
               </div>
-              {/* <Image
-                src={banner_1.src}
-                // ratio="16/9"
-                disabledEffect
-                sx={{ borderRadius: 1, mb: 1 }}
-              /> */}
             </Grid>
-            <Grid item xs={6}>
+            <Grid item xs={12} md={6}>
               <div style={{ position: "relative" }}>
                 <img
                   src={banner_4.src}
@@ -246,12 +232,6 @@ export default function Banner() {
                   </Button>
                 </div>
               </div>
-              {/* <Image
-                src={banner_1.src}
-                // ratio="16/9"
-                disabledEffect
-                sx={{ borderRadius: 1, mb: 1 }}
-              /> */}
             </Grid>
           </Grid>
         </Grid>
