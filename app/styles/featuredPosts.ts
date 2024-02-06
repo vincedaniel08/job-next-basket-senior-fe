@@ -1,9 +1,6 @@
 const style = {
   root: {
-    px: {
-      xs: 5,
-      lg: 20,
-    },
+    px: 20,
     borderShadow: 0,
   },
   gridParent: {

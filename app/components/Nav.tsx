@@ -1,40 +1,15 @@
 "use client";
 
-/* Core */
-import Link from "next/link";
-import { usePathname } from "next/navigation";
-
 /* Instruments */
 import styles from "../styles/nav";
 
-import { styled } from "@mui/material/styles";
 import { Box, Typography } from "@mui/material";
-import Paper from "@mui/material/Paper";
 import Grid from "@mui/material/Grid";
 
 import Iconify from "./Iconify";
 
 export const Nav = () => {
-  const pathname = usePathname();
-
   return (
-    // <nav className={styles.nav}>
-    //   <Link
-    //     className={`${styles.link} ${pathname === "/" ? styles.active : ""}`}
-    //     href="/"
-    //   >
-    //     Home
-    //   </Link>
-    //   <Link
-    //     className={`${styles.link} ${
-    //       pathname === "/verify" ? styles.active : ""
-    //     }`}
-    //     href="/verify"
-    //   >
-    //     Verify
-    //   </Link>
-    // </nav>
-
     <Box sx={styles.root}>
       <Grid container sx={styles.gridParent}>
         <Grid item xs={3} sx={styles.gridchild}>

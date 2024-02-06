@@ -4,9 +4,14 @@ const style = {
     color: "white",
     height: "58px",
     px: 15,
+    display: {
+      xs: "none",
+      lg: "flex",
+    },
   },
   gridParent: {
     height: "100%",
+    display: "flex",
   },
   gridchild: {
     display: "flex",
