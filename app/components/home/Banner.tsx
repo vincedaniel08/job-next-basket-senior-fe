@@ -24,7 +24,14 @@ const Item = styled(Paper)(({ theme }) => ({
 export default function Banner() {
   return (
     <Box sx={{ flexGrow: 1, mx: 20, mt: 8 }}>
-      <Grid container spacing={2}>
+      <Grid
+        container
+        spacing={2}
+        display={{
+          xs: "none",
+          md: "flex",
+        }}
+      >
         <Grid item xs={12} md={5}>
           {/* Image with text inside */}
           <div style={{ position: "relative" }}>
@@ -200,6 +207,226 @@ export default function Banner() {
                     position: "absolute",
                     top: "25%",
                     left: "40%",
+                    transform: "translate(-50%, -50%)",
+                    color: "white",
+                    fontSize: "20px",
+                    fontWeight: "bold",
+                  }}
+                >
+                  <Typography
+                    variant="captions"
+                    color="primary"
+                    sx={{ fontWeight: "bold" }}
+                  >
+                    5 items
+                  </Typography>
+                  <Typography
+                    variant="h4"
+                    sx={{ fontWeight: "bold", color: "black" }}
+                  >
+                    FURNITURE
+                  </Typography>
+
+                  <Button
+                    variant="text"
+                    sx={{
+                      color: "black",
+                      fontWeight: "bold",
+                      textTransform: "none",
+                    }}
+                  >
+                    Read More
+                  </Button>
+                </div>
+              </div>
+            </Grid>
+          </Grid>
+        </Grid>
+      </Grid>
+
+      <Grid
+        container
+        spacing={2}
+        display={{
+          xs: "flex",
+          md: "none",
+        }}
+      >
+        <Grid item xs={12} md={12}>
+          {/* Image with text inside */}
+          <div style={{ position: "relative" }}>
+            <img
+              src={banner_1.src}
+              alt="banner"
+              objectFit="cover"
+              width="100%"
+              height="300"
+              layout="fill"
+              placeholder="blur"
+            />
+            <div
+              style={{
+                position: "absolute",
+                top: "25%",
+                left: "20%",
+                transform: "translate(-50%, -50%)",
+                color: "white",
+                fontSize: "20px",
+                fontWeight: "bold",
+              }}
+            >
+              <Typography
+                variant="captions"
+                color="primary"
+                sx={{ fontWeight: "bold" }}
+              >
+                5 items
+              </Typography>
+              <Typography
+                variant="h4"
+                sx={{ fontWeight: "bold", color: "black" }}
+              >
+                FURNITURE
+              </Typography>
+
+              <Button
+                variant="text"
+                sx={{
+                  color: "black",
+                  fontWeight: "bold",
+                  textTransform: "none",
+                }}
+              >
+                Read More
+              </Button>
+            </div>
+          </div>
+
+          {/* <Image
+            src={banner_1.src}
+            // ratio="9/16"
+            disabledEffect
+            sx={{ borderRadius: 1, mb: 1 }}
+          /> */}
+        </Grid>
+
+        <Grid item xs={12}>
+          <Grid container spacing={2}>
+            <Grid item xs={12}>
+              {/* Image with text inside */}
+              <div style={{ position: "relative" }}>
+                <img
+                  src={banner_2.src}
+                  alt="banner"
+                  objectFit="cover"
+                  width="100%"
+                  height="300"
+                  layout="fill"
+                  placeholder="blur"
+                />
+                <div
+                  style={{
+                    position: "absolute",
+                    top: "25%",
+                    left: "20%",
+                    transform: "translate(-50%, -50%)",
+                    color: "white",
+                    fontSize: "20px",
+                    fontWeight: "bold",
+                  }}
+                >
+                  <Typography
+                    variant="captions"
+                    color="primary"
+                    sx={{ fontWeight: "bold" }}
+                  >
+                    5 items
+                  </Typography>
+                  <Typography
+                    variant="h4"
+                    sx={{ fontWeight: "bold", color: "black" }}
+                  >
+                    FURNITURE
+                  </Typography>
+
+                  <Button
+                    variant="text"
+                    sx={{
+                      color: "black",
+                      fontWeight: "bold",
+                      textTransform: "none",
+                    }}
+                  >
+                    Read More
+                  </Button>
+                </div>
+              </div>
+            </Grid>
+            <Grid item xs={12} md={12}>
+              <div style={{ position: "relative" }}>
+                <img
+                  src={banner_3.src}
+                  alt="banner"
+                  objectFit="cover"
+                  width="100%"
+                  height="300"
+                  layout="fill"
+                  placeholder="blur"
+                />
+                <div
+                  style={{
+                    position: "absolute",
+                    top: "25%",
+                    left: "20%",
+                    transform: "translate(-50%, -50%)",
+                    color: "white",
+                    fontSize: "20px",
+                    fontWeight: "bold",
+                  }}
+                >
+                  <Typography
+                    variant="captions"
+                    color="primary"
+                    sx={{ fontWeight: "bold" }}
+                  >
+                    5 items
+                  </Typography>
+                  <Typography
+                    variant="h4"
+                    sx={{ fontWeight: "bold", color: "black" }}
+                  >
+                    FURNITURE
+                  </Typography>
+
+                  <Button
+                    variant="text"
+                    sx={{
+                      color: "black",
+                      fontWeight: "bold",
+                      textTransform: "none",
+                    }}
+                  >
+                    Read More
+                  </Button>
+                </div>
+              </div>
+            </Grid>
+            <Grid item xs={12} md={12}>
+              <div style={{ position: "relative" }}>
+                <img
+                  src={banner_4.src}
+                  alt="banner"
+                  objectFit="cover"
+                  width="100%"
+                  height="300"
+                  layout="fill"
+                  placeholder="blur"
+                />
+                <div
+                  style={{
+                    position: "absolute",
+                    top: "25%",
+                    left: "20%",
                     transform: "translate(-50%, -50%)",
                     color: "white",
                     fontSize: "20px",

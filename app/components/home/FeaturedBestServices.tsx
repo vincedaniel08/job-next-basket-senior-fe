@@ -36,7 +36,7 @@ export default function FeaturedBestServices() {
     },
   ];
   return (
-    <Box sx={{ flexGrow: 1, mt: 10, mx: 15 }}>
+    <Box sx={{ flexGrow: 1, mt: 10, mx: 15, textAlign: "center" }}>
       <Grid container spacing={2}>
         <Grid item xs={12}>
           <Typography variant="h5" color="gray">
