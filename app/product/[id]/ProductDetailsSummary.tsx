@@ -137,10 +137,6 @@ export default function ProductDetailsSummary({ product }) {
           <Iconify icon={"mdi:eye"} width={24} height={24} color={"#000"} />
         </IconButton>
       </Stack>
-
-      <Stack alignItems="center" sx={{ mt: 3 }}>
-        {/* <SocialsButton initialColor /> */}a
-      </Stack>
     </div>
   );
 }
